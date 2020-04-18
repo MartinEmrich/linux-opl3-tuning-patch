@@ -1,0 +1,17 @@
+diff -Naur linux-5.6.4.orig/sound/drivers/opl3/opl3_midi.c linux-5.6.4/sound/drivers/opl3/opl3_midi.c
+--- linux-5.6.4.orig/sound/drivers/opl3/opl3_midi.c	2020-04-13 13:18:12.000000000 +0200
++++ linux-5.6.4/sound/drivers/opl3/opl3_midi.c	2020-04-18 17:35:50.124162148 +0200
+@@ -71,9 +71,10 @@
+  */
+ static const short opl3_note_table[16] =
+ {
+-	305, 323,	/* for pitch bending, -2 semitones */
+-	343, 363, 385, 408, 432, 458, 485, 514, 544, 577, 611, 647,
+-	686, 726	/* for pitch bending, +2 semitones */
++ /* patched for concert tuning at 440Hz on YMF289 */ 
++	307, 326,	/* for pitch bending, -2 semitones */
++	346, 367, 389, 412, 436, 462, 490, 519, 550, 582, 617, 654,
++	693, 734	/* for pitch bending, +2 semitones */
+ };
+ 
+ static void snd_opl3_calc_pitch(unsigned char *fnum, unsigned char *blocknum,
